@@ -4,7 +4,7 @@ moduleConfig:
 with lib;
 
 let
-  originalNodePackage = pkgs.nodejs-16_x;
+  originalNodePackage = pkgs.nodejs-18_x;
   vscodeCodeBinary = "${pkgs.vscode}/lib/vscode/code";
   libstdc = "${pkgs.gcc-unwrapped.lib}/lib/libstdc++.so.6";
   # Adapted from https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/vscode/generic.nix#L181
@@ -56,7 +56,7 @@ in
     enable = mkEnableOption "auto-fix service for vscode-server in NixOS";
     nodePackage = mkOption {
       type = package;
-      default = pkgs.nodejs-14_x;
+      default = pkgs.nodejs-18_x;
     };
     useFhsNodeEnvironment = mkOption {
       type = types.bool;
@@ -99,6 +99,7 @@ in
         dirs=(
           ~/.vscode-server/bin
           ~/.vscode-server-insiders/bin
+          ~/.vscode-server/cli
         )
         fix_all_vscode() {
           for bin_dir in ''${dirs[@]} ; do
