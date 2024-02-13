@@ -56,7 +56,7 @@ in
     enable = mkEnableOption "auto-fix service for vscode-server in NixOS";
     nodePackage = mkOption {
       type = package;
-      default = pkgs.nodejs-18_x;
+      default = pkgs.nodejs-20_x;
     };
     useFhsNodeEnvironment = mkOption {
       type = types.bool;
